@@ -1,6 +1,5 @@
 def fizzbuzz
-  n = 1
-  while n <= 100 do
+  1.step(100, 1) do |n|
     if n % 3 == 0 && n % 5 == 0
       puts 'FizzBuzz'
     elsif n % 3 == 0
@@ -10,7 +9,6 @@ def fizzbuzz
     else
       puts n
     end
-    n = n + 1
   end
 end
 
