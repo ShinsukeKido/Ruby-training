@@ -1,6 +1,6 @@
-require './chapter-6/regular_exp.rb'
+require './chapter-6/convert_hash_syntax.rb'
 
-RSpec.describe 'RegularExp' do
+RSpec.describe 'ConvertHashSyntax' do
   it 'adjusts indent and symbol to regular expression' do
     old = <<~TEXT
       {
@@ -18,6 +18,6 @@ RSpec.describe 'RegularExp' do
       }
     TEXT
 
-    expect(regular_exp(old)).to eq fixed
+    expect(convert_hash_syntax(old)).to eq fixed
   end
 end

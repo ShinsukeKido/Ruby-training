@@ -1,8 +1,8 @@
 require 'minitest/autorun'
-require './regular_exp.rb'
+require './convert_hash_syntax.rb'
 
-class RegularExpTest < Minitest::Test
-  def test_regular_exp
+class ConvertHashSyntaxTest < Minitest::Test
+  def test_convert_hash_syntax
     old = <<~TEXT
       {
         :name =>    'Alice',
@@ -19,6 +19,6 @@ class RegularExpTest < Minitest::Test
       }
     TEXT
 
-    assert_equal fixed, regular_exp(old)
+    assert_equal fixed, convert_hash_syntax(old)
   end
 end
