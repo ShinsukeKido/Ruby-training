@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require './gate.rb'
+require './ticket.rb'
 
 class GateTest < Minitest::Test
 

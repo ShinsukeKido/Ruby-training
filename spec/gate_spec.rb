@@ -1,4 +1,5 @@
 require './chapter-7/gate.rb'
+require './chapter-7/ticket.rb'
 
 RSpec.describe 'GateTest' do
   let(:umeda) { Gate.new(:umeda) }
