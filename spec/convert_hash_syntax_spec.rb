@@ -22,7 +22,6 @@ RSpec.describe 'ConvertHashSyntax' do
   end
 
   it 'インデントを整え、シンボルに統一する' do
-
     expect(convert_hash_syntax(old)).to eq fixed
   end
 end
