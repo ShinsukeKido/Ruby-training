@@ -21,7 +21,7 @@ RSpec.describe 'ConvertHashSyntax' do
     TEXT
   end
 
-  it 'adjusts indent and symbol to regular expression' do
+  it 'インデントを整え、シンボルに統一する' do
 
     expect(convert_hash_syntax(old)).to eq fixed
   end
