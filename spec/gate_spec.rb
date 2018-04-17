@@ -6,37 +6,37 @@ RSpec.describe 'GateTest' do
   let(:juso) { Gate.new(:juso) }
   let(:mikuni) { Gate.new(:mikuni) }
 
-  it 'tests umeda to juso by 150 ticket' do
+  it '150円の乗車券でumedaからjusoまで乗れることの確認' do
     ticket = Ticket.new(150)
     umeda.enter(ticket)
     expect(juso.exit(ticket)).to eq true
   end
 
-  it 'tests umeda to juso by 190 ticket' do
+  it '190円の乗車券でumedaからjusoまで乗れることの確認' do
     ticket = Ticket.new(190)
     umeda.enter(ticket)
     expect(juso.exit(ticket)).to eq true
   end
 
-  it 'tests umeda to mikuni by 190 ticket' do
+  it '150円の乗車券でumedaからmikuniまで乗れないことの確認' do
     ticket = Ticket.new(150)
     umeda.enter(ticket)
     expect(mikuni.exit(ticket)).to eq false
   end
 
-  it 'tests umeda to mikuni by 190 ticket' do
+  it '190円の乗車券でumedaからmikuniまで乗れることの確認' do
     ticket = Ticket.new(190)
     umeda.enter(ticket)
     expect(mikuni.exit(ticket)).to eq true
   end
 
-  it 'tests juso to mikuni by 190 ticket' do
+  it '150円の乗車券でjusoからmikuniまで乗れることの確認' do
     ticket = Ticket.new(150)
     juso.enter(ticket)
     expect(mikuni.exit(ticket)).to eq true
   end
 
-  it 'tests juso to mikuni by 190 ticket' do
+  it '190円の乗車券でjusoからmikuniまで乗れることの確認' do
     ticket = Ticket.new(190)
     juso.enter(ticket)
     expect(mikuni.exit(ticket)).to eq true
