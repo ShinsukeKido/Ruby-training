@@ -2,7 +2,6 @@ require 'minitest/autorun'
 require './chapter-8/team.rb'
 require './chapter-8/bank.rb'
 
-
 class DeepFreezeTest < Minitest::Test
   def test_deep_freeze_to_array
     assert_equal ['Japan', 'US', 'India'], Team::COUNTRIES
