@@ -1,5 +1,4 @@
 require './chapter-8/team.rb'
-require './chapter-8/bank.rb'
 
 RSpec.describe Team do
   it 'freezeされたCOUNTRIESの値が正しいか' do

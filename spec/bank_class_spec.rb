@@ -1,4 +1,3 @@
-require './chapter-8/team.rb'
 require './chapter-8/bank.rb'
 
 RSpec.describe Bank do
