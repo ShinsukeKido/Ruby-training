@@ -1,7 +1,7 @@
 require './chapter-8/team.rb'
 require './chapter-8/bank.rb'
 
-RSpec.describe 'Team' do
+RSpec.describe Team do
   it 'freezeされたCOUNTRIESの値が正しいか' do
     expect(Team::COUNTRIES).to eq ['Japan', 'US', 'India']
   end

@@ -1,7 +1,7 @@
 require './chapter-8/team.rb'
 require './chapter-8/bank.rb'
 
-RSpec.describe 'Bank' do
+RSpec.describe Bank do
   it 'freezeされたCURRENCIESの値が正しいか' do
     expect(Bank::CURRENCIES).to eq ({'Japan' => 'yen', 'US' => 'dollar', 'India' => 'rupee'})
   end
