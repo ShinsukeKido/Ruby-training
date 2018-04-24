@@ -6,16 +6,13 @@ def input_string
 end
 
 def input_regexp
-  begin
-    print 'Pattern?: '
-    pattern = gets.chomp
-    return input_regexp if pattern == ''
-    regexp = /#{pattern}/
-  rescue RegexpError => e
-    puts "Invalid pattern: #{e.message}"
-    retry
-  end
-  regexp
+  print 'Pattern?: '
+  pattern = gets.chomp
+  return input_regexp if pattern == ''
+  /#{pattern}/
+rescue RegexpError => e
+  puts "Invalid pattern: #{e.message}"
+  retry
 end
 
 def match_text_to_regexp(text, regexp)
