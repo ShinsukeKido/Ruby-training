@@ -18,7 +18,7 @@ def input_regexp
   regexp
 end
 
-def match(text, regexp)
+def match_text_to_regexp(text, regexp)
   matches = text.scan(regexp)
   if matches.size > 0
     "Matched: #{matches.join(', ')}"
