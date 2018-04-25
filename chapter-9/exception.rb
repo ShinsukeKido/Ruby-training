@@ -18,7 +18,7 @@ class RegexpTest
 
   def match_text_to_regexp(text, regexp)
     matches = text.scan(regexp)
-    if matches.size > 0
+    if matches.size.positive?
       "Matched: #{matches.join(', ')}"
     else
       "Nothing matched"
