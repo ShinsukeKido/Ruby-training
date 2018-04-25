@@ -18,7 +18,8 @@ Style/MutableConstant:
   Enabled: false
 
 Metrics/BlockLength:
-  Max: 35
+  Exclude:
+    - spec/*
 
 MethodLength:
   Max: 20
