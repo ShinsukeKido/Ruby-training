@@ -1,3 +1,6 @@
 require './chapter-9/exception.rb'
 
-puts match_text_to_regexp(input_string, input_regexp)
+string = RegexpTest.new.input_string
+regexp = RegexpTest.new.input_regexp
+
+puts RegexpTest.new.match_text_to_regexp(string, regexp)
