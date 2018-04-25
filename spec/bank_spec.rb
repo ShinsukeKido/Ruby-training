@@ -2,7 +2,7 @@ require './chapter-8/bank.rb'
 
 RSpec.describe Bank do
   it 'freezeされたCURRENCIESの値が正しいか' do
-    expect(Bank::CURRENCIES).to eq ({'Japan' => 'yen', 'US' => 'dollar', 'India' => 'rupee'})
+    expect(Bank::CURRENCIES).to eq('Japan' => 'yen', 'US' => 'dollar', 'India' => 'rupee')
   end
 
   describe '.deep_freeze' do
@@ -11,8 +11,7 @@ RSpec.describe Bank do
     end
 
     it 'CURRENCIESの各要素がfreezeされているか' do
-      expect(Bank::CURRENCIES.all?{ |key, value| key.frozen? && value.frozen? }).to eq true
+      expect(Bank::CURRENCIES.all? { |key, value| key.frozen? && value.frozen? }).to eq true
     end
   end
 end
-

@@ -3,7 +3,6 @@ require './gate.rb'
 require './ticket.rb'
 
 class GateTest < Minitest::Test
-
   def setup
     @umeda = Gate.new(:umeda)
     @juso = Gate.new(:juso)

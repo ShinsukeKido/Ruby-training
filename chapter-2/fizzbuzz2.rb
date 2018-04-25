@@ -1,11 +1,11 @@
-def fizzbuzz(n)
-  if n % 3 == 0 && n % 5 == 0
+def fizzbuzz(num)
+  if (num % 3).zero? && (num % 5).zero?
     'FizzBuzz'
-  elsif n % 3 == 0
+  elsif (num % 3).zero?
     'Fizz'
-  elsif n % 5 == 0
+  elsif (num % 5).zero?
     'Buzz'
   else
-    n
+    num
   end
 end
