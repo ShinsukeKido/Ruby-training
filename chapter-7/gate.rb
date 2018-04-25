@@ -1,5 +1,5 @@
 class Gate
-  STATIONS = [:umeda, :juso, :mikuni]
+  STATIONS = %i[umeda juso mikuni]
   FARES = [150, 190]
 
   def initialize(name)
@@ -16,6 +16,7 @@ class Gate
   end
 
   private
+
   def calc_fare(ticket)
     from = STATIONS.index(ticket.stamped_at)
     to = STATIONS.index(@name)
@@ -23,4 +24,3 @@ class Gate
     FARES[distance - 1]
   end
 end
-
