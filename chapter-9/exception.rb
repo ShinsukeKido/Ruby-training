@@ -21,7 +21,7 @@ class RegexpTest
     if matches.size.positive?
       "Matched: #{matches.join(', ')}"
     else
-      "Nothing matched"
+      'Nothing matched'
     end
   end
 end
