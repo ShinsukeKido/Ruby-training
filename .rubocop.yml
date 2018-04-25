@@ -1,0 +1,28 @@
+AllCops:
+  # Rubyのバージョンを指定
+  TargetRubyVersion: 2.5.1
+  # 除外するファイル
+  Exclude:
+    - vendor/bundle/**/*
+    - spec/spec_helper.rb
+    - Gemfile
+    - sideci_demo/*
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/*
+
+MethodLength:
+  Max: 20
+
+Metrics/LineLength:
+  Max: 128
