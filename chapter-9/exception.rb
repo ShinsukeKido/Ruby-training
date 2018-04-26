@@ -1,6 +1,8 @@
 class RegexpTest
   def regexp_execute
-    match_text_to_regexp(input_string, input_regexp)
+    text = input_string
+    regexp = input_regexp
+    match_text_to_regexp(text, regexp)
   end
 
   def match_text_to_regexp(text, regexp)
