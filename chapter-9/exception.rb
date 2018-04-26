@@ -1,4 +1,6 @@
 class RegexpTest
+  class EmptyInputError < StandardError; end
+
   def regexp_execute
     text = input_string
     regexp = input_regexp
@@ -19,15 +21,21 @@ class RegexpTest
   def input_string
     print 'Text?: '
     text = gets.chomp
-    return input_string if text.empty?
+    raise EmptyInputError if text.empty?
     text
+  rescue EmptyInputError
+    puts 'Please input something'
+    retry
   end
 
   def input_regexp
     print 'Pattern?: '
     pattern = gets.chomp
-    return input_regexp if pattern.empty?
+    raise EmptyInputError if pattern.empty?
     Regexp.new(pattern)
+  rescue EmptyInputError
+    puts 'Please input something'
+    retry
   rescue RegexpError => e
     puts "Invalid pattern: #{e.message}"
     retry
