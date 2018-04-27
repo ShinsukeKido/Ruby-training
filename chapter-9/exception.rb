@@ -21,32 +21,31 @@ class RegexpTest
   private
 
   def input_string
-    retry_count = 1
-    begin
+    retry_input do
       print 'Text?: '
-      text = gets.chomp
-      raise EmptyInputError if text.empty?
-      text
-    rescue EmptyInputError
-      retry_count += 1
-      if retry_count <= 5
-        puts 'Please input string'
-        retry
-      end
+      [gets.chomp, 'Please input string']
     end
   end
 
   def input_regexp
+    retry_input do
+      print 'Pattern?: '
+      [gets.chomp, 'Please input regexp']
+    end
+  end
+
+  def retry_input
     retry_count = 1
     begin
-      print 'Pattern?: '
-      pattern = gets.chomp
+      pattern_sentence = yield
+      pattern = pattern_sentence[0]
+      sentence = pattern_sentence[1]
       raise EmptyInputError if pattern.empty?
       Regexp.new(pattern)
     rescue EmptyInputError
       retry_count += 1
       if retry_count <= 5
-        puts 'Please input ragexp'
+        puts sentence
         retry
       end
     rescue RegexpError => e
