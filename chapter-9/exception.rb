@@ -3,12 +3,13 @@ class RegexpTest
 
   def regexp_execute
     text = input_string
+    return 'input string error' if text.nil?
     regexp = input_regexp
     match_text_to_regexp(text, regexp)
   end
 
   def match_text_to_regexp(text, regexp)
-    return 'RegexpError' if regexp == 'Error'
+    return 'input regexp error' if regexp.nil?
     matches = text.scan(regexp)
     if matches.size.positive?
       "Matched: #{matches.join(', ')}"
@@ -20,13 +21,19 @@ class RegexpTest
   private
 
   def input_string
-    print 'Text?: '
-    text = gets.chomp
-    raise EmptyInputError if text.empty?
-    text
-  rescue EmptyInputError
-    puts 'Please input something'
-    retry
+    retry_count = 0
+    begin
+      print 'Text?: '
+      text = gets.chomp
+      raise EmptyInputError if text.empty?
+      text
+    rescue EmptyInputError
+      retry_count += 1
+      if retry_count <= 4
+        puts 'Please input string'
+        retry
+      end
+    end
   end
 
   def input_regexp
@@ -37,15 +44,16 @@ class RegexpTest
       raise EmptyInputError if pattern.empty?
       Regexp.new(pattern)
     rescue EmptyInputError
-      puts 'Please input something'
-      retry
+      retry_count += 1
+      if retry_count <= 4
+        puts 'Please input ragexp'
+        retry
+      end
     rescue RegexpError => e
       retry_count += 1
-      if retry_count <= 5
+      if retry_count <= 4
         puts "Invalid pattern: #{e.message}"
         retry
-      else
-        'Error'
       end
     end
   end
