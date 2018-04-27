@@ -21,7 +21,7 @@ class RegexpTest
   private
 
   def input_string
-    retry_count = 0
+    retry_count = 1
     begin
       print 'Text?: '
       text = gets.chomp
@@ -29,7 +29,7 @@ class RegexpTest
       text
     rescue EmptyInputError
       retry_count += 1
-      if retry_count <= 4
+      if retry_count <= 5
         puts 'Please input string'
         retry
       end
@@ -37,7 +37,7 @@ class RegexpTest
   end
 
   def input_regexp
-    retry_count = 0
+    retry_count = 1
     begin
       print 'Pattern?: '
       pattern = gets.chomp
@@ -45,13 +45,13 @@ class RegexpTest
       Regexp.new(pattern)
     rescue EmptyInputError
       retry_count += 1
-      if retry_count <= 4
+      if retry_count <= 5
         puts 'Please input ragexp'
         retry
       end
     rescue RegexpError => e
       retry_count += 1
-      if retry_count <= 4
+      if retry_count <= 5
         puts "Invalid pattern: #{e.message}"
         retry
       end
