@@ -23,29 +23,29 @@ class RegexpTest
   def input_string
     retry_input do
       print 'Text?: '
-      [gets.chomp, 'Please input string']
+      text = gets.chomp
+      raise EmptyInputError, 'input string' if text.empty?
+      text
     end
   end
 
   def input_regexp
     retry_input do
       print 'Pattern?: '
-      [gets.chomp, 'Please input regexp']
+      pattern = gets.chomp
+      raise EmptyInputError, 'input regexp' if pattern.empty?
+      Regexp.new(pattern)
     end
   end
 
   def retry_input
     retry_count = 1
     begin
-      pattern_sentence = yield
-      pattern = pattern_sentence[0]
-      sentence = pattern_sentence[1]
-      raise EmptyInputError if pattern.empty?
-      Regexp.new(pattern)
-    rescue EmptyInputError
+      yield
+    rescue EmptyInputError => e
       retry_count += 1
       if retry_count <= 5
-        puts sentence
+        puts e.message
         retry
       end
     rescue RegexpError => e
