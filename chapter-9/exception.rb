@@ -42,18 +42,15 @@ class RegexpTest
     retry_count = 1
     begin
       yield
-    rescue EmptyInputError => e
+    rescue EmptyInputError, RegexpError => e
       retry_count += 1
-      if retry_count <= 5
+      return if retry_count > 5
+      if e.is_a?(EmptyInputError)
         puts e.message
-        retry
-      end
-    rescue RegexpError => e
-      retry_count += 1
-      if retry_count <= 5
+      else
         puts "Invalid pattern: #{e.message}"
-        retry
       end
+      retry
     end
   end
 end
