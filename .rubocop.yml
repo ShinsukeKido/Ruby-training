@@ -26,3 +26,6 @@ MethodLength:
 
 Metrics/LineLength:
   Max: 128
+
+Style/ClassCheck:
+  EnforcedStyle: kind_of?
