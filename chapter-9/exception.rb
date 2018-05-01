@@ -47,7 +47,7 @@ class RegexpTest
       return if retry_count > 5
       if e.is_a?(EmptyInputError)
         puts e.message
-      else
+      elsif e.is_a?(RegexpError)
         puts "Invalid pattern: #{e.message}"
       end
       retry
