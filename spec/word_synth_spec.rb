@@ -2,8 +2,10 @@ require './chapter-10/effects.rb'
 require './chapter-10/word_synth.rb'
 
 RSpec.describe WordSynth do
-  let(:synth) { WordSynth.new }
   subject { synth.play('Ruby is fun!') }
+
+  let(:synth) { WordSynth.new }
+
   context 'synthのインスタンス変数が空の時' do
     it 'playメソッドにより、引数の文字列がそのまま返る' do
       is_expected.to eq 'Ruby is fun!'

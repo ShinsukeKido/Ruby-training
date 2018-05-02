@@ -2,6 +2,7 @@ require './chapter-10/effects.rb'
 
 RSpec.describe Effects do
   subject { effect.call('Ruby is fun!') }
+
   describe '.reverse' do
     let(:effect) { Effects.reverse }
     it 'reverseメソッドにより作成されたラムダが、与えられた文字列の各単語の順序を逆にする' do
