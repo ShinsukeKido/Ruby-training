@@ -11,17 +11,21 @@ RSpec.describe WordSynth do
   end
 
   context 'synthのインスタンス変数にreverseメソッドによって作成されたラムダが格納された時' do
-    it 'playメソッドにより、文字列"Ruby is fun!"が文字列"ybuR si !nuf"に変換される' do
+    before do
       synth.add_effect(Effects.reverse)
+    end
+    it 'playメソッドにより、文字列"Ruby is fun!"が文字列"ybuR si !nuf"に変換される' do
       is_expected.to eq 'ybuR si !nuf'
     end
   end
 
   context 'synthのインスタンス変数にecho(2)メソッド、loud(3)メソッド、reverseメソッドによって作成されたラムダが順番に格納された時' do
-    it 'playメソッドにより、文字列"Ruby is fun!"が文字列"!!!YYBBUURR !!!SSII !!!!!NNUUFF"に変換される' do
+    before do
       synth.add_effect(Effects.echo(2))
       synth.add_effect(Effects.loud(3))
       synth.add_effect(Effects.reverse)
+    end
+    it 'playメソッドにより、文字列"Ruby is fun!"が文字列"!!!YYBBUURR !!!SSII !!!!!NNUUFF"に変換される' do
       is_expected.to eq '!!!YYBBUURR !!!SSII !!!!!NNUUFF'
     end
   end
